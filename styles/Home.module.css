@@ -27,6 +27,10 @@
   flex-grow: 1;
 }
 
+.footer img {
+  width: 30vw;
+}
+
 .title a {
   color: #0070f3;
   text-decoration: none;

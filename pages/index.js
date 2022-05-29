@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -13,15 +13,19 @@ export default function Home() {
 
       <main className={styles.main}>
         <div className={styles.grid}>
-          <a href="/nft/12" className={styles.card}>
-            <h2>Event Badges &rarr;</h2>
-            <p>View the event badges available.</p>
-          </a>
+          <Link href="/nft/12">
+            <a className={styles.card}>
+              <h2>Event Badges &rarr;</h2>
+              <p>View the event badges available.</p>
+            </a>
+          </Link>
 
-          <a href="/nft/52?expired=true" className={styles.card}>
-            <h2>Collection &rarr;</h2>
-            <p>View your collection of Badges.</p>
-          </a>
+          <Link href="/nft/52?expired=true">
+            <a className={styles.card}>
+              <h2>Collection &rarr;</h2>
+              <p>View your collection of Badges.</p>
+            </a>
+          </Link>
         </div>
       </main>
 
