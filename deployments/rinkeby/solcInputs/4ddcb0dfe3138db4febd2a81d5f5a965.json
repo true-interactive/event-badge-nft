@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/EventBadge.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.7;\r\n\r\nerror EventBadge__SendCorrectPaymentAmount();\r\nerror EventBadge__EventExpired();\r\nerror EventBadge__UpkeepNotNeeded();\r\n\r\ncontract EventBadge {\r\n    enum EventState {\r\n        Pending,\r\n        Live,\r\n        Expired\r\n    }\r\n\r\n    EventState public s_eventState;\r\n    uint256 private immutable i_badgeFee;\r\n    uint256 public dt_eventStartDate;\r\n    uint256 public dt_eventEndDate;\r\n    address payable[] public s_badgeHolders;\r\n\r\n    event BadgePurchased(address indexed purchaser);\r\n    event EventHasStarted();\r\n    event EventHasExpired();\r\n\r\n    constructor(\r\n        uint256 badgeFee,\r\n        uint256 eventStart,\r\n        uint256 eventEnd\r\n    ) {\r\n        i_badgeFee = badgeFee;\r\n        dt_eventStartDate = eventStart;\r\n        dt_eventEndDate = eventEnd;\r\n    }\r\n\r\n    function buyBadge() external payable {\r\n        // Send the right amount of money\r\n        if (msg.value < i_badgeFee) {\r\n            revert EventBadge__SendCorrectPaymentAmount();\r\n        }\r\n        // Only allow purchase if the event hasn't expired\r\n        if (\r\n            s_eventState != EventState.Pending ||\r\n            s_eventState != EventState.Live\r\n        ) {\r\n            revert EventBadge__EventExpired();\r\n        }\r\n        if (block.timestamp >= dt_eventEndDate) {\r\n            revert EventBadge__EventExpired();\r\n        }\r\n\r\n        s_badgeHolders.push(payable(msg.sender));\r\n        emit BadgePurchased(msg.sender);\r\n    }\r\n\r\n    function isEventLive() public view returns (bool) {\r\n        return\r\n            block.timestamp > dt_eventStartDate &&\r\n            block.timestamp < dt_eventEndDate;\r\n    }\r\n\r\n    function isBadgeAvailableForSale() public view returns (bool) {\r\n        return block.timestamp < dt_eventEndDate;\r\n    }\r\n\r\n    function checkUpkeep(bytes calldata /* checkData */)\r\n        public\r\n        view\r\n        returns (bool upkeepNeeded, bytes memory /* performData */)\r\n    {\r\n        bool needsUpdating = false;\r\n\r\n        // Event has expired, no longer need to watch for this so exit early\r\n        if (s_eventState == EventState.Expired) {\r\n            return (needsUpdating, \"0x0\");\r\n        }\r\n\r\n        // If event is flagged pending but the event has started\r\n        if (s_eventState == EventState.Pending) {\r\n            if (block.timestamp > dt_eventStartDate) {\r\n                needsUpdating = true;\r\n            }\r\n        }\r\n\r\n        // If the event has expired\r\n        if (s_eventState == EventState.Live) {\r\n            if (block.timestamp < dt_eventEndDate) {\r\n                needsUpdating = true;\r\n            }\r\n        }\r\n\r\n        return (needsUpdating, \"0x0\");\r\n    }\r\n\r\n    function performUpkeep(bytes calldata performData) external {\r\n        (bool upkeepNeeded, ) = checkUpkeep(performData);\r\n        if (!upkeepNeeded) {\r\n            revert EventBadge__UpkeepNotNeeded();\r\n        }\r\n\r\n        if (block.timestamp > dt_eventStartDate) {\r\n            s_eventState = EventState.Live;\r\n            emit EventHasStarted();\r\n        }\r\n        if (block.timestamp >= dt_eventEndDate) {\r\n            s_eventState = EventState.Expired;\r\n            emit EventHasExpired();\r\n        }\r\n    }\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
