@@ -63,7 +63,7 @@ export default function EventBadge(props) {
                             </div>
                         }
                         {!isLive &&
-                            <img src="/TIA_Logo_001_w_cut_animated.gif" alt="Animated TIA Logo" className={styles.animatedLogo}></img>
+                            <img src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/TIA_Logo_001_w_cut_animated.gif" alt="Animated TIA Logo" className={styles.animatedLogo}></img>
                         }
                     </div>
                 </div>
