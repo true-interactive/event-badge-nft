@@ -12,4 +12,6 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
         log: true,
         waitConfirmation: 6,
     });
+    
+    module.exports.tag ['EventBadge'];
 }  
