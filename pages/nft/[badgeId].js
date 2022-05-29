@@ -16,7 +16,7 @@ export default function EventBadge(props) {
                             {isLive &&
                                 <div>
                                     <video autoPlay muted loop className={styles.backgroundVideo}>
-                                        <source src="/videos/drone_flyby.mp4" type="video/mp4"></source>
+                                        <source src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/videos/drone_flyby.mp4" type="video/mp4"></source>
                                         Your browser does not support HTML5 video.
                                     </video>
                                     <figcaption>LIVE!</figcaption>
@@ -24,7 +24,7 @@ export default function EventBadge(props) {
                             }
                             {!isLive &&
                                 <div>
-                                    <img src="/ticket_crowd_only.gif" alt="Ticket Badge Crowd Dancing" className={styles.fansWaiting} />
+                                    <img src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/ticket_crowd_only.gif" alt="Ticket Badge Crowd Dancing" className={styles.fansWaiting} />
                                     <EventTimer startDate={data.custom_fields.startDate} className={styles.eventTimer}></EventTimer>
                                 </div>
                             }
@@ -43,7 +43,7 @@ export default function EventBadge(props) {
                                 <figure>
                                     <div className={styles["img-bg"]}></div>
                                     <video autoPlay muted loop className={styles.backgroundVideo}>
-                                        <source src="/videos/crowd_dancing.mp4" type="video/mp4"></source>
+                                        <source src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/videos/crowd_dancing.mp4" type="video/mp4"></source>
                                         Your browser does not support HTML5 video.
                                     </video>
                                 </figure>
