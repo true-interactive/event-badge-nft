@@ -1,12 +1,11 @@
-import { useRouter } from "next/router";
-
-import Image from 'next/image'
-
 import styles from '/styles/NFT/EventBadge.module.css'
+import EventTimer from "../../components/EventTimer";
+import { useState } from "react";
 
-export default function EventBadge() {
-    const router = useRouter();
-    const { address, expired } = router.query;
+export default function EventBadge(props) {
+    const data = props.data;
+    const now = new Date().getTime();
+    const isLive = (data.custom_fields.startDate - now) < 0;
 
     return (
         <div>
@@ -14,7 +13,7 @@ export default function EventBadge() {
                 <div className={styles["flip-card"]}>
                     <div className={styles["card-front"]}>
                         <figure>
-                            {expired == "true" &&
+                            {isLive &&
                                 <div>
                                     <video autoPlay muted loop className={styles.backgroundVideo}>
                                         <source src="/videos/drone_flyby.mp4" type="video/mp4"></source>
@@ -23,23 +22,23 @@ export default function EventBadge() {
                                     <figcaption>LIVE!</figcaption>
                                 </div>
                             }
-                            {expired != "true" &&
+                            {!isLive &&
                                 <div>
                                     <img src="/ticket_crowd_only.gif" alt="Ticket Badge Crowd Dancing" className={styles.fansWaiting} />
-                                    <object data="/svgs/event-timer.svg" type="image/svg+xml" className={styles.eventTimer}></object>
+                                    <EventTimer startDate={data.custom_fields.startDate} className={styles.eventTimer}></EventTimer>
                                 </div>
                             }
                             <img src="/TIA_Logo_001_w_3blue.png" className={styles.tiaLogo} />
                         </figure>
                         <ul>
-                            <li className={styles.title}>Awesome Live Concert</li>
-                            <li className={styles.eventDate}>{expired == "true" ? <span>Happening Now!</span> : <span>May 28th, 2022 @ Midnight</span>}</li>
-                            <li className={styles.badgeNumber}>Badge # {address}</li>
+                            <li className={styles.title}>{data.custom_fields.eventName}</li>
+                            <li className={styles.eventDate}>{isLive ? <span>Happening Now!</span> : <span>{new Date(data.custom_fields.startDate).toLocaleString("en-us", { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric', hour: 'numeric', minute: 'numeric' })}</span>}</li>
+                            <li className={styles.badgeNumber}>Badge # {data.custom_fields.badgeId}</li>
                         </ul>
                     </div>
 
                     <div className={styles["card-back"]}>
-                        {expired == "true" &&
+                        {isLive &&
                             <div>
                                 <figure>
                                     <div className={styles["img-bg"]}></div>
@@ -63,7 +62,7 @@ export default function EventBadge() {
                                 </div>
                             </div>
                         }
-                        {expired != "true" &&
+                        {!isLive &&
                             <img src="/TIA_Logo_001_w_cut_animated.gif" alt="Animated TIA Logo" className={styles.animatedLogo}></img>
                         }
                     </div>
@@ -71,4 +70,16 @@ export default function EventBadge() {
             </div>
         </div>
     )
+}
+
+export async function getServerSideProps(context) {
+    const { badgeId } = context.params;
+    const dataUrl = new URL(`/api/nft/${badgeId}`, 'http://' + context.req.headers.host);
+
+    const data = await fetch(dataUrl.href);
+    const json = await data.json();
+
+    return {
+        props: { data: json }
+    };
 }
