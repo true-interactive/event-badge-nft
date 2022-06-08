@@ -15,10 +15,7 @@ export default function EventBadge(props) {
                         <figure>
                             {isLive &&
                                 <div>
-                                    <video autoPlay muted loop className={styles.backgroundVideo}>
-                                        <source src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/videos/drone_flyby.mp4" type="video/mp4"></source>
-                                        Your browser does not support HTML5 video.
-                                    </video>
+                                    <iframe className={styles.backgroundVideo} src="https://www.youtube.com/embed/4kLXEqQ6tL0?autoplay=1&mute=1"></iframe>
                                     <figcaption>LIVE!</figcaption>
                                 </div>
                             }
@@ -48,7 +45,7 @@ export default function EventBadge(props) {
                                     </video>
                                 </figure>
 
-                                <button onClick={() => window.open("https://framevr.io/trueinteractive", "_blank")}>Attend Event</button>
+                                <button onClick={() => window.open("https://www.youtube.com/4kLXEqQ6tL0", "_blank")}>Attend Event</button>
 
                                 <div className={styles["design-container"]}>
                                     <span className={styles["design design--1"]}></span>
