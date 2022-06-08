@@ -45,7 +45,7 @@ export default function EventBadge(props) {
                                     </video>
                                 </figure>
 
-                                <button onClick={() => window.open("https://www.youtube.com/4kLXEqQ6tL0", "_blank")}>Attend Event</button>
+                                <button onClick={() => window.open("https://www.youtube.com/watch?v=4kLXEqQ6tL0", "_blank")}>Attend Event</button>
 
                                 <div className={styles["design-container"]}>
                                     <span className={styles["design design--1"]}></span>
