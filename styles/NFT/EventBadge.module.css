@@ -156,12 +156,14 @@
 }
 
 li.title {
-    font-weight: bold;
     font-size: 1.5em;
     color: #ffffff;
     background: #002232d9;
     border-bottom: 2px solid #000000;
     box-shadow: 0 -5px 4px 1px;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 li.subTitle {
@@ -174,6 +176,8 @@ li.eventDate {
     font-weight: 700;
     color: #f44336;
     font-size: 1.2rem;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
 }
 
 li.badgeNumber {
@@ -184,12 +188,12 @@ li.badgeNumber {
     color: #000;
     position: absolute;
     bottom: 0;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
 }
 
 /* button */
 .flip-card button {
-    font-family: inherit;
-    font-weight: bold;
     color: #ffffff;
     letter-spacing: 2px;
     padding: 2rem 20rem;
@@ -198,6 +202,9 @@ li.badgeNumber {
     transition: .3s;
     cursor: pointer;
     text-transform: uppercase;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
+    font-size: 2em;
 }
 
 .flip-card button:hover,
@@ -332,6 +339,9 @@ button:focus+.design-container {
     text-anchor: middle;
     fill: #ffffff;
     display: none;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
+    font-weight: normal;
 }
 
 .fansWaiting {

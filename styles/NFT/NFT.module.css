@@ -11,6 +11,9 @@
     color: #ffffff;
     padding: 1em;
     text-transform: uppercase;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
+    font-weight: normal;
 }
 
 .eventsAvailable ul {
@@ -46,6 +49,9 @@
     border-bottom: 3px solid #ffffff;
     margin: 0 0 4px;
     padding: 0 0 0.5em;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
+    font-weight: normal;
 }
 
 .eventsAvailable article p {
@@ -53,7 +59,6 @@
     margin: 0 0 1em;
     color: #fff;
     padding: 1em 1em;
-    font-weight: bold;
 }
 
 .eventsAvailable article a {
@@ -73,10 +78,11 @@
             0% 1em);
     width: 90%;
     text-transform: uppercase;
-    font-weight: bold;
     color: #ffffff;
     transition: color 250ms;
     margin: 0 auto 1em;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
 }
 
 .eventsAvailable article a::before {
@@ -120,7 +126,6 @@
     width: auto;
     margin-top: 1.5em;
     padding: 8px 40px 8px 10px;
-    font-weight: 700;
     line-height: 1.6;
     letter-spacing: 2px;
     word-spacing: 6px;
@@ -132,6 +137,8 @@
     border-radius: 7px;
     color: #ffffff;
     background: #f44336;
+    font-family: 'Goodtimes Regular';
+    letter-spacing: 1px;
 }
 
 .purchaseWrapper {

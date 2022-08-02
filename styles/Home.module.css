@@ -9,7 +9,10 @@
   place-content: center;
   color: #ffffff;
   padding: 1em;
+  font-family: "Goodtimes Regular";
   text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: normal;
 }
 
 .purchaseLayout nav {
@@ -47,10 +50,16 @@
   border-bottom: 3px solid #ffffff;
   margin: 0 0 4px;
   padding: 0 0 0.5em;
+  font-family: 'Goodtimes Regular';
+  letter-spacing: 1px;
+  font-weight: normal;
 }
 
 .purchaseLayout article h4 {
   color: #ffffff;
+  font-family: 'Goodtimes Regular';
+  letter-spacing: 1px;
+  font-weight: normal;
 }
 
 .purchaseLayout article ul {
@@ -83,10 +92,11 @@
       0% 1em);
   width: 90%;
   text-transform: uppercase;
-  font-weight: bold;
   color: #ffffff;
   transition: color 250ms;
   margin: 0 auto 1em;
+  font-family: 'Goodtimes Regular';
+  letter-spacing: 1px;
 }
 
 .purchaseLayout article a.purchase::before {
