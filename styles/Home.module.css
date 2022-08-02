@@ -1,114 +1,126 @@
-.container {
-  padding: 0 2rem;
+.purchaseLayout {
+  display: grid;
+  place-content: center;
 }
 
-.main {
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.purchaseLayout h2 {
+  display: grid;
+  margin: 0;
+  place-content: center;
+  color: #ffffff;
+  padding: 1em;
+  text-transform: uppercase;
+}
+
+.purchaseLayout nav {
+  margin: 0 0 1em;
+}
+
+.purchaseLayout nav a {
+  width: 2em;
+  color: #ffffff;
+  font-size: 2em;
+}
+
+.purchaseLayout nav .active {
+  color: #f44336;
+}
+
+.purchaseLayout article {
   position: relative;
+  overflow: hidden;
+  background: #09716994;
+  padding: 0.5em 0;
+  display: grid;
+  clip-path: polygon(1em 0%,
+      100% 0,
+      100% calc(100% - 1em),
+      calc(100% - 1em) 100%,
+      0 100%,
+      0% 1em);
+  width: 80vw;
 }
 
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.footer img {
-  width: 30vw;
-}
-
-.title a {
-  color: #0070f3;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 0;
-  line-height: 1.15;
-  font-size: 4rem;
-}
-
-.title,
-.description {
+.purchaseLayout article h3 {
   text-align: center;
+  color: #ffffff;
+  border-bottom: 3px solid #ffffff;
+  margin: 0 0 4px;
+  padding: 0 0 0.5em;
 }
 
-.description {
-  margin: 4rem 0;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.purchaseLayout article h4 {
+  color: #ffffff;
 }
 
-.code {
-  background: #fafafa;
-  border-radius: 5px;
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
+.purchaseLayout article ul {
+  display: grid;
+  grid-template-columns: auto auto;
 }
 
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+.purchaseLayout article ul li {
+  list-style: none;
 }
 
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 300px;
+.purchaseLayout article p {
+  height: 20vh;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0070f3;
-  border-color: #0070f3;
+.purchaseLayout article a.purchase {
+  cursor: pointer;
+  color: #ffffff;
+  padding: 0.5em 1.5em;
+  border: 0;
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  place-content: center;
+  clip-path: polygon(1em 0%,
+      100% 0,
+      100% calc(100% - 1em),
+      calc(100% - 1em) 100%,
+      0 100%,
+      0% 1em);
+  width: 90%;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #ffffff;
+  transition: color 250ms;
+  margin: 0 auto 1em;
 }
 
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.5rem;
+.purchaseLayout article a.purchase::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
+  z-index: -2;
 }
 
-.card p {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.5;
+.purchaseLayout article a.purchase::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, #097169, black);
+  z-index: -1;
+  clip-path: polygon(0.1em calc(1em + 0.1em * 0.5),
+      calc(1em + 0.1em * 0.5) 0.1em,
+      calc(100% - 0.1em) 0.1em,
+      calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+      calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em),
+      0.1em calc(100% - 0.1em));
+  transition: clip-path 250ms;
 }
 
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
-  }
+.purchaseLayout article a.purchase:hover {
+  color: #000000;
+}
+
+.purchaseLayout article a.purchase:hover::after {
+  clip-path: polygon(calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+      calc(100% - 0.1em) 1em,
+      calc(100% - 0.1em) 1em,
+      calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+      calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em),
+      calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em));
 }

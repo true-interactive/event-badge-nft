@@ -1,10 +1,152 @@
+.eventsAvailable {
+    display: grid;
+    margin: 0;
+    place-content: center;
+}
+
+.eventsAvailable h2 {
+    display: grid;
+    margin: 0;
+    place-content: center;
+    color: #ffffff;
+    padding: 1em;
+    text-transform: uppercase;
+}
+
+.eventsAvailable ul {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1em;
+    padding: 1em;
+    width: 80vw;
+    margin: 0;
+}
+
+.eventsAvailable li {
+    list-style: none;
+}
+
+.eventsAvailable article {
+    position: relative;
+    overflow: hidden;
+    background: #09716994;
+    padding: 0.5em 0;
+    display: grid;
+    clip-path: polygon(1em 0%,
+            100% 0,
+            100% calc(100% - 1em),
+            calc(100% - 1em) 100%,
+            0 100%,
+            0% 1em);
+}
+
+.eventsAvailable article h3 {
+    text-align: center;
+    color: #ffffff;
+    border-bottom: 3px solid #ffffff;
+    margin: 0 0 4px;
+    padding: 0 0 0.5em;
+}
+
+.eventsAvailable article p {
+    border-top: 3px solid #ffffff;
+    margin: 0 0 1em;
+    color: #fff;
+    padding: 1em 1em;
+    font-weight: bold;
+}
+
+.eventsAvailable article a {
+    cursor: pointer;
+    color: #ffffff;
+    padding: 0.5em 1.5em;
+    border: 0;
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    clip-path: polygon(1em 0%,
+            100% 0,
+            100% calc(100% - 1em),
+            calc(100% - 1em) 100%,
+            0 100%,
+            0% 1em);
+    width: 90%;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #ffffff;
+    transition: color 250ms;
+    margin: 0 auto 1em;
+}
+
+.eventsAvailable article a::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    z-index: -2;
+}
+
+.eventsAvailable article a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, #097169, black);
+    z-index: -1;
+    clip-path: polygon(0.1em calc(1em + 0.1em * 0.5),
+            calc(1em + 0.1em * 0.5) 0.1em,
+            calc(100% - 0.1em) 0.1em,
+            calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+            calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em),
+            0.1em calc(100% - 0.1em));
+    transition: clip-path 250ms;
+}
+
+.eventsAvailable article a:hover {
+    color: #000000;
+}
+
+.eventsAvailable article a:hover::after {
+    clip-path: polygon(calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+            calc(100% - 0.1em) 1em,
+            calc(100% - 0.1em) 1em,
+            calc(100% - 0.1em) calc(100% - calc(1em + 0.1em * 0.5)),
+            calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em),
+            calc(100% - calc(1em + 0.1em * 0.5)) calc(100% - 0.1em));
+}
+
+.eventsAvailable figcaption {
+    display: block;
+    width: auto;
+    margin-top: 1.5em;
+    padding: 8px 40px 8px 10px;
+    font-weight: 700;
+    line-height: 1.6;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    text-align: right;
+    position: absolute;
+    top: 0;
+    right: -35px;
+    text-shadow: 0 0 20px #000000;
+    border-radius: 7px;
+    color: #ffffff;
+    background: #f44336;
+}
+
 .purchaseWrapper {
-    height: 100vh;
-    width: 100vw;
+    height: 69vh;
+}
+
+.purchaseWrapper::before {
+    content: '';
+    position: absolute;
+    border-bottom: 3px solid #ffffff;
+    width: 100%;
 }
 
 .contentText {
-    margin: 2rem auto;
+    margin: 0 auto;
     width: 80vw;
     font-weight: 700;
     font-size: 1.5rem;

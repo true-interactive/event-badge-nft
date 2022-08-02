@@ -1,16 +1,16 @@
 export default function handler(req, res) {
     const { badgeId } = req.query;
     const data = {
-        startDate: new Date("June 8, 2022 11:00:00").getTime(),
-        endDate: new Date("June 8, 2022 13:00:00").getTime(),
-        eventName: "Chainlink Spring 2022 Hackathon Closing Ceremony",
+        startDate: new Date("September 15, 2022 11:00:00").getTime(),
+        endDate: new Date("September 30, 2022 13:00:00").getTime(),
+        eventName: "Gaming Event",
         eventId: 2,
         purchaseDate: Date.now()
     };
     const expiredData = {
-        startDate: new Date("May 28, 2022 00:00:00").getTime(),
-        endDate: new Date("June 8, 2022 11:00:00").getTime(),
-        eventName: "Awesome You Did It Concert - Hackathon Judging Period",
+        startDate: new Date("August 1, 2022 11:00:00").getTime(),
+        endDate: new Date("September 15, 2022 13:00:00").getTime(),
+        eventName: "Awesome Music Event",
         eventId: 1,
         purchaseDate: Date.now()
     }

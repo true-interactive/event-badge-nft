@@ -12,6 +12,7 @@ body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
   overflow: hidden;
+  min-height: 100vh;
 }
 
 a {
@@ -25,4 +26,23 @@ a {
 
 main {
   position: relative;
+}
+
+.purchaseLayout {
+  display: grid;
+  place-content: center;
+}
+
+.purchaseLayout nav {
+  width: 70vw;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  text-align: center;
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.purchaseLayout nav a {
+  padding: 1em 2em;
 }

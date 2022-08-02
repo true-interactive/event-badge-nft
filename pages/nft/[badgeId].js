@@ -15,7 +15,10 @@ export default function EventBadge(props) {
                         <figure>
                             {isLive &&
                                 <div>
-                                    <iframe className={styles.backgroundVideo} src="https://www.youtube.com/embed/4kLXEqQ6tL0?autoplay=1&mute=1"></iframe>
+                                    <video autoPlay muted loop className={styles.backgroundVideo}>
+                                        <source src="https://storageapi.fleek.co/e0b96245-b6e5-4816-9856-ac47eedc62e6-bucket/True-Interactive-Services/EventBadge/videos/drone_flyby.mp4" type="video/mp4"></source>
+                                        Your browser does not support HTML5 video.
+                                    </video>
                                     <figcaption>LIVE!</figcaption>
                                 </div>
                             }
@@ -25,7 +28,6 @@ export default function EventBadge(props) {
                                     <EventTimer startDate={data.custom_fields.startDate} className={styles.eventTimer}></EventTimer>
                                 </div>
                             }
-                            <img src="/TIA_Logo_001_w_3blue.png" className={styles.tiaLogo} />
                         </figure>
                         <ul>
                             <li className={styles.title}>{data.custom_fields.eventName}</li>
@@ -45,7 +47,7 @@ export default function EventBadge(props) {
                                     </video>
                                 </figure>
 
-                                <button onClick={() => window.open("https://www.youtube.com/watch?v=4kLXEqQ6tL0", "_blank")}>Attend Event</button>
+                                <button>Attend Event</button>
 
                                 <div className={styles["design-container"]}>
                                     <span className={styles["design design--1"]}></span>
